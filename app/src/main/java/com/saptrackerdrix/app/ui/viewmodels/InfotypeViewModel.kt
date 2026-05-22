@@ -53,13 +53,19 @@ class InfotypeViewModel(private val context: Context) : ViewModel() {
     
     init {
         viewModelScope.launch {
-            // Check if infotypes are already seeded
-            val count = dao.getCount()
-            if (count == 0) {
-                // Seed the database with infotypes
-                dao.insertAll(InfotypeData.getAllInfotypes())
+            try {
+                // Check if infotypes are already seeded
+                val count = dao.getCount()
+                if (count == 0) {
+                    // Seed the database with infotypes
+                    dao.insertAll(InfotypeData.getAllInfotypes())
+                }
+            } catch (e: Exception) {
+                // Log error but don't crash
+                e.printStackTrace()
+            } finally {
+                _isLoading.value = false
             }
-            _isLoading.value = false
         }
     }
     
