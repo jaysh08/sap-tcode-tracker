@@ -8,6 +8,15 @@ android {
     namespace = "com.saptrackerdrix.app"
     compileSdk = 35
 
+    signingConfigs {
+        create("release") {
+            storeFile = file("release-keystore.jks")
+            storePassword = "android123"
+            keyAlias = "release"
+            keyPassword = "android123"
+        }
+    }
+
     defaultConfig {
         applicationId = "com.saptrackerdrix.app"
         minSdk = 26
@@ -23,6 +32,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("release")
+        }
+        debug {
+            signingConfig = signingConfigs.getByName("release")
         }
     }
 

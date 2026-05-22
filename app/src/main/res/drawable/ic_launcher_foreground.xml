@@ -1,14 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
+    <!-- Background circle - SAP Blue -->
+    <path
+        android:fillColor="#0F4C81"
+        android:pathData="M54,54m-42,0a42,42 0,1 1,84 0a42,42 0,1 1,-84 0"/>
+    
+    <!-- Cat Ears - pointing up -->
+    <!-- Left ear -->
+    <path
+        android:fillColor="#FF8C00"
+        android:pathData="M30,32 L42,52 L22,48 Z"/>
+    <!-- Right ear -->
+    <path
+        android:fillColor="#FF8C00"
+        android:pathData="M78,32 L66,52 L86,48 Z"/>
+    
+    <!-- Cat Head - main circle -->
+    <path
+        android:fillColor="#FF8C00"
+        android:pathData="M54,30 C75,30 84,48 84,62 C84,78 72,90 54,90 C36,90 24,78 24,62 C24,48 33,30 54,30"/>
+    
+    <!-- Inner left ear -->
+    <path
+        android:fillColor="#FFB347"
+        android:pathData="M32,36 L40,50 L26,46 Z"/>
+    <!-- Inner right ear -->
+    <path
+        android:fillColor="#FFB347"
+        android:pathData="M76,36 L68,50 L82,46 Z"/>
+    
+    <!-- Eyes - big cute cat eyes -->
+    <!-- Left eye white -->
+    <path
+        android:name="left_eye_white"
+        android:fillColor="#FFFFFF"
+        android:pathData="M40,48 C40,42 47,38 52,42 C57,46 57,52 52,54 C47,56 40,54 40,48"/>
+    <!-- Right eye white -->
+    <path
+        android:name="right_eye_white"
+        android:fillColor="#FFFFFF"
+        android:pathData="M56,42 C56,36 63,32 68,36 C73,40 73,46 68,48 C63,50 56,48 56,42"/>
+    
+    <!-- Pupils -->
+    <path
+        android:fillColor="#1A1A2E"
+        android:pathData="M45,48 C45,44 50,42 52,44 C54,46 54,50 52,51 C50,52 45,51 45,48"/>
+    <path
+        android:fillColor="#1A1A2E"
+        android:pathData="M60,44 C60,40 65,38 68,40 C71,42 71,46 68,47 C65,48 60,47 60,44"/>
+    
+    <!-- Eye shine -->
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M54,30 L74,54 L54,78 L34,54 Z"/>
+        android:pathData="M46,45 C47,44 49,44 49,46 C49,47 47,48 46,47 C45,46 46,45 46,45"/>
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M54,38 L66,54 L54,70 L42,54 Z"
-        android:strokeColor="#0070F0"
-        android:strokeWidth="2"/>
+        android:pathData="M61,41 C62,40 64,40 64,42 C64,43 62,44 61,43 C60,42 61,41 61,41"/>
+    
+    <!-- Nose - pink triangle -->
+    <path
+        android:fillColor="#FF6B6B"
+        android:pathData="M54,58 L49,63 L59,63 Z"/>
+    
+    <!-- Mouth - happy cat smile -->
+    <path
+        android:strokeColor="#8B4513"
+        android:strokeWidth="2"
+        android:fillColor="#00000000"
+        android:pathData="M54,63 Q54,68 48,71"/>
+    <path
+        android:strokeColor="#8B4513"
+        android:strokeWidth="2"
+        android:fillColor="#00000000"
+        android:pathData="M54,63 Q54,68 60,71"/>
+    
+    <!-- Whiskers - left side -->
+    <path
+        android:strokeColor="#8B4513"
+        android:strokeWidth="1.2"
+        android:pathData="M26,56 L44,58"/>
+    <path
+        android:strokeColor="#8B4513"
+        android:strokeWidth="1.2"
+        android:pathData="M25,60 L44,61"/>
+    <path
+        android:strokeColor="#8B4513"
+        android:strokeWidth="1.2"
+        android:pathData="M26,64 L43,64"/>
+    
+    <!-- Whiskers - right side -->
+    <path
+        android:strokeColor="#8B4513"
+        android:strokeWidth="1.2"
+        android:pathData="M82,56 L64,58"/>
+    <path
+        android:strokeColor="#8B4513"
+        android:strokeWidth="1.2"
+        android:pathData="M83,60 L64,61"/>
+    <path
+        android:strokeColor="#8B4513"
+        android:strokeWidth="1.2"
+        android:pathData="M82,64 L65,64"/>
+    
+    <!-- Tail - cute curved tail -->
+    <group android:name="tail">
+        <path
+            android:fillColor="#00000000"
+            android:strokeColor="#FF8C00"
+            android:strokeWidth="6"
+            android:strokeLineCap="round"
+            android:pathData="M75,88 Q88,85 92,72 Q95,62 88,58"/>
+    </group>
 </vector>
