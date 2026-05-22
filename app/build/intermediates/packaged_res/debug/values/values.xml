@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="sap_blue">#0070F0</color>
+    <color name="sap_blue_dark">#004A9C</color>
+    <color name="sap_green">#00B300</color>
+    <color name="sap_orange">#FF6B00</color>
+    <color name="white">#FFFFFF</color>
+    <string name="app_name">SAP TCode Tracker</string>
+    <style name="Theme.SAPTcodeTracker" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/sap_blue_dark</item>
+        <item name="android:navigationBarColor">@color/sap_blue</item>
+    </style>
+</resources>

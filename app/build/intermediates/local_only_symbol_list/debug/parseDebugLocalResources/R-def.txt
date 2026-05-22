@@ -1,0 +1,13 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color sap_blue
+color sap_blue_dark
+color sap_green
+color sap_orange
+color white
+drawable ic_launcher_foreground
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style Theme.SAPTcodeTracker
