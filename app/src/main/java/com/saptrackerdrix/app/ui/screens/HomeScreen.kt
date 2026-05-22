@@ -76,9 +76,6 @@ fun HomeScreen(
         Column(
             modifier = Modifier.fillMaxSize()
         ) {
-            // Header
-            HomeHeader()
-            
             // Search bar
             SearchBar(
                 query = searchQuery,
@@ -206,17 +203,6 @@ fun HomeScreen(
             )
         }
     }
-}
-
-@Composable
-fun HomeHeader() {
-    Text(
-        text = "T-Codes",
-        style = MaterialTheme.typography.titleMedium,
-        fontWeight = FontWeight.SemiBold,
-        color = MaterialTheme.colorScheme.onSurface,
-        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
-    )
 }
 
 @Composable
