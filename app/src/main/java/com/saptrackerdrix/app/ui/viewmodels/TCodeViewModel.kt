@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.saptrackerdrix.app.data.TCodeData
 import com.saptrackerdrix.app.data.model.TCode
 import com.saptrackerdrix.app.data.repository.DatabaseProvider
 import kotlinx.coroutines.flow.*
@@ -15,7 +16,8 @@ data class TCodeUiState(
     val isSearching: Boolean = false,
     val showFavoritesOnly: Boolean = false,
     val recentlyAddedId: String? = null,
-    val recentlySearchedId: String? = null
+    val recentlySearchedId: String? = null,
+    val isLoading: Boolean = true
 )
 
 class TCodeViewModel(private val context: Context) : ViewModel() {
@@ -26,6 +28,7 @@ class TCodeViewModel(private val context: Context) : ViewModel() {
     private val _showFavoritesOnly = MutableStateFlow(false)
     private val _recentlyAddedId = MutableStateFlow<String?>(null)
     private val _recentlySearchedId = MutableStateFlow<String?>(null)
+    private val _isLoading = MutableStateFlow(true)
     
     val uiState: StateFlow<TCodeUiState> = combine(
         _searchQuery,
@@ -47,7 +50,8 @@ class TCodeViewModel(private val context: Context) : ViewModel() {
                 isSearching = query.isNotBlank(),
                 showFavoritesOnly = favoritesOnly,
                 recentlyAddedId = addedId,
-                recentlySearchedId = searchedId
+                recentlySearchedId = searchedId,
+                isLoading = false
             )
         }
     }.stateIn(
@@ -55,6 +59,25 @@ class TCodeViewModel(private val context: Context) : ViewModel() {
         started = SharingStarted.WhileSubscribed(5000),
         initialValue = TCodeUiState()
     )
+    
+    init {
+        viewModelScope.launch {
+            try {
+                // Check if tcodes are already seeded
+                val count = dao.getCount()
+                if (count == 0) {
+                    // Seed the database with HCM T-Codes
+                    TCodeData.getAllTCodes().forEach { tCode ->
+                        dao.insertTCode(tCode)
+                    }
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            } finally {
+                _isLoading.value = false
+            }
+        }
+    }
     
     fun updateSearchQuery(query: String) {
         _searchQuery.value = query

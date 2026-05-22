@@ -1,0 +1,320 @@
+package com.saptrackerdrix.app.data
+
+import com.saptrackerdrix.app.data.model.TCode
+
+object TCodeData {
+    fun getAllTCodes(): List<TCode> = listOf(
+        // =====================
+        // Personnel Administration (PA)
+        // =====================
+        TCode(code = "PA00", purpose = "Personnel Administration - Initial Menu", module = "PA"),
+        TCode(code = "PA03", purpose = "Maintain Personnel Control Record", module = "PA"),
+        TCode(code = "PA04", purpose = "Maintain HR Number Ranges", module = "PA"),
+        TCode(code = "PA05", purpose = "Number Range Maintenance for Personnel Numbers", module = "PA"),
+        TCode(code = "PA10", purpose = "Personnel File - Quick Entry", module = "PA"),
+        TCode(code = "PA20", purpose = "Display HR Master Data", module = "PA"),
+        TCode(code = "PA30", purpose = "Maintain HR Master Data", module = "PA"),
+        TCode(code = "PA40", purpose = "Personnel Actions (Hiring, Transfer, Termination)", module = "PA"),
+        TCode(code = "PA41", purpose = "Change Hiring Data", module = "PA"),
+        TCode(code = "PA42", purpose = "Fast Data Entry for Events", module = "PA"),
+        TCode(code = "PA46", purpose = "Import from Resumix", module = "PA"),
+        TCode(code = "PA47", purpose = "Export to Resumix", module = "PA"),
+        TCode(code = "PA48", purpose = "Hiring from Non-SAP System", module = "PA"),
+        TCode(code = "PA51", purpose = "Display Time Data", module = "PA"),
+        TCode(code = "PA53", purpose = "Display Time Data (Menu-driven)", module = "PA"),
+        TCode(code = "PA61", purpose = "Maintain Time Data", module = "PA"),
+        TCode(code = "PA62", purpose = "List Entry of Additional Data", module = "PA"),
+        TCode(code = "PA63", purpose = "Maintain Time Data (Dialog)", module = "PA"),
+        TCode(code = "PA64", purpose = "Calendar Entry for Time Management", module = "PA"),
+        TCode(code = "PA70", purpose = "Fast Data Entry for Personnel Administration", module = "PA"),
+        TCode(code = "PA71", purpose = "Fast Entry of Time Data", module = "PA"),
+        TCode(code = "PA75", purpose = "Display Additional Data", module = "PA"),
+        TCode(code = "PA80", purpose = "Maintain Additional Data", module = "PA"),
+        TCode(code = "PA85", purpose = "Display Benefits", module = "PA"),
+        TCode(code = "PA87", purpose = "Display Benefits Enumeration", module = "PA"),
+        TCode(code = "PA88", purpose = "Benefits Administration", module = "PA"),
+        TCode(code = "PA90", purpose = "HR Reports Menu", module = "PA"),
+        TCode(code = "PA97", purpose = "Matrix Maintenance", module = "PA"),
+        TCode(code = "PA99", purpose = "Personnel Administration Report", module = "PA"),
+        
+        // =====================
+        // Time Management (PT)
+        // =====================
+        TCode(code = "PT01", purpose = "Create Work Schedule (Shift Planning)", module = "PT"),
+        TCode(code = "PT02", purpose = "Change Work Schedule", module = "PT"),
+        TCode(code = "PT03", purpose = "Display Work Schedule", module = "PT"),
+        TCode(code = "PT60", purpose = "Time Sheet Entry (CATS)", module = "PT"),
+        TCode(code = "PT61", purpose = "Time Sheet: Display", module = "PT"),
+        TCode(code = "PT62", purpose = "Time Sheet: Release", module = "PT"),
+        TCode(code = "PT63", purpose = "Time Sheet: Transfer", module = "PT"),
+        TCode(code = "PT64", purpose = "Time Statement", module = "PT"),
+        TCode(code = "PT65", purpose = "Time Evaluation Log", module = "PT"),
+        TCode(code = "PT66", purpose = "Display Time Evaluation Results", module = "PT"),
+        TCode(code = "PT80", purpose = "Time Management Reports", module = "PT"),
+        TCode(code = "CAT2", purpose = "Time Sheet: Data Entry (CATS)", module = "PT"),
+        TCode(code = "CAT3", purpose = "Time Sheet: Display Times", module = "PT"),
+        TCode(code = "CAT6", purpose = "Time Sheet: Approve", module = "PT"),
+        TCode(code = "ZCAT6", purpose = "Transfer Time Data to HR Time Management", module = "PT"),
+        
+        // =====================
+        // Payroll (PC)
+        // =====================
+        TCode(code = "PC00", purpose = "Run Payroll - Main Menu", module = "PC"),
+        TCode(code = "PC10", purpose = "Payroll Menu USA", module = "PC"),
+        TCode(code = "PC11", purpose = "Payroll USA: Run", module = "PC"),
+        TCode(code = "PC20", purpose = "Display Payroll Results", module = "PC"),
+        TCode(code = "PC21", purpose = "Display Remuneration Statement", module = "PC"),
+        TCode(code = "PC22", purpose = "Payroll USA: Retroactive Payroll", module = "PC"),
+        TCode(code = "PC30", purpose = "Incoming Payments USA", module = "PC"),
+        TCode(code = "PC40", purpose = "Third Party Payroll Payment", module = "PC"),
+        TCode(code = "PC50", purpose = "Year-End Processing USA", module = "PC"),
+        TCode(code = "PC60", purpose = "Generate DME Files", module = "PC"),
+        TCode(code = "PC70", purpose = "Payroll Report", module = "PC"),
+        TCode(code = "PC_MI", purpose = "Payroll Interface Menu", module = "PC"),
+        TCode(code = "PE00", purpose = "HR Form: Start Transactions PE01-PE03", module = "PC"),
+        TCode(code = "PE01", purpose = "Payroll Schemas Configuration", module = "PC"),
+        TCode(code = "PE02", purpose = "Calculation Rules for Payroll", module = "PC"),
+        TCode(code = "PE03", purpose = "Features in Payroll", module = "PC"),
+        TCode(code = "PE04", purpose = "Create Functions and Operations", module = "PC"),
+        TCode(code = "PE51", purpose = "HR Form Editor", module = "PC"),
+        TCode(code = "PRCA", purpose = "Payroll Calendar", module = "PC"),
+        TCode(code = "PRCT", purpose = "Current Settings for Payroll", module = "PC"),
+        TCode(code = "PRCU", purpose = "Printing Checks USA", module = "PC"),
+        TCode(code = "PRD1", purpose = "Create DME (Direct Magnetic Media)", module = "PC"),
+        TCode(code = "PU00", purpose = "HR Payroll USA: Check DME File", module = "PC"),
+        TCode(code = "PU01", purpose = "HR Payroll USA: Edit DME File", module = "PC"),
+        
+        // =====================
+        // Recruitment (PB)
+        // =====================
+        TCode(code = "PB10", purpose = "Initial Entry of Applicant Master Data", module = "PB"),
+        TCode(code = "PB20", purpose = "Display Applicant Master Data", module = "PB"),
+        TCode(code = "PB30", purpose = "Maintain Applicant Master Data", module = "PB"),
+        TCode(code = "PB40", purpose = "Applicant Events", module = "PB"),
+        TCode(code = "PB50", purpose = "Display Applicant Actions", module = "PB"),
+        TCode(code = "PB60", purpose = "Maintain Applicant Actions", module = "PB"),
+        TCode(code = "PB80", purpose = "Evaluate Vacancies", module = "PB"),
+        TCode(code = "PBA0", purpose = "Evaluate Advertisements", module = "PB"),
+        TCode(code = "PBA1", purpose = "Applicant Index", module = "PB"),
+        TCode(code = "PBA2", purpose = "List of Applications", module = "PB"),
+        TCode(code = "PBA3", purpose = "Applicant Vacancy Assignment List", module = "PB"),
+        TCode(code = "PBA4", purpose = "Receipt of Application", module = "PB"),
+        TCode(code = "PBA5", purpose = "Vacancy Index", module = "PB"),
+        TCode(code = "PBA6", purpose = "Applicant Ranking", module = "PB"),
+        TCode(code = "PBB1", purpose = "Vacancy: Create", module = "PB"),
+        TCode(code = "PBB2", purpose = "Vacancy: Change", module = "PB"),
+        TCode(code = "PBB3", purpose = "Vacancy: Display", module = "PB"),
+        TCode(code = "PBAB", purpose = "Maintain Vacancy Assignments", module = "PB"),
+        TCode(code = "PBD1", purpose = "Personnel Selection: Create Profile", module = "PB"),
+        TCode(code = "PBD2", purpose = "Personnel Selection: Change Profile", module = "PB"),
+        TCode(code = "PBD3", purpose = "Personnel Selection: Display Profile", module = "PB"),
+        TCode(code = "PBRC", purpose = "Applicant Data Transfer", module = "PB"),
+        TCode(code = "PBAS", purpose = "Applicant Search", module = "PB"),
+        
+        // =====================
+        // Organizational Management (PP)
+        // =====================
+        TCode(code = "PP01", purpose = "Maintain Plan Data (Menu-guided)", module = "PP"),
+        TCode(code = "PP02", purpose = "Maintain Plan Data (Open)", module = "PP"),
+        TCode(code = "PP03", purpose = "Display Plan Data", module = "PP"),
+        TCode(code = "PPOMA", purpose = "Organizational Management - Change Mode", module = "PP"),
+        TCode(code = "PPOMW", purpose = "Organizational Management - Display Mode", module = "PP"),
+        TCode(code = "PPOSE", purpose = "Simple Organization Editor", module = "PP"),
+        TCode(code = "PO03", purpose = "Display Object", module = "PP"),
+        TCode(code = "PO04", purpose = "Change Object", module = "PP"),
+        TCode(code = "PO10", purpose = "Maintain Organization Unit", module = "PP"),
+        TCode(code = "PO11", purpose = "Display Organization Unit", module = "PP"),
+        TCode(code = "PO13", purpose = "Create Job", module = "PP"),
+        TCode(code = "PO14", purpose = "Change Job", module = "PP"),
+        TCode(code = "PO15", purpose = "Display Job", module = "PP"),
+        TCode(code = "PO16", purpose = "Create Position", module = "PP"),
+        TCode(code = "PO17", purpose = "Change Position", module = "PP"),
+        TCode(code = "PO18", purpose = "Display Position", module = "PP"),
+        TCode(code = "PO19", purpose = "Create Work Center", module = "PP"),
+        TCode(code = "PO20", purpose = "Create Business Event Group", module = "PP"),
+        TCode(code = "PO21", purpose = "Maintain Task", module = "PP"),
+        TCode(code = "PO22", purpose = "Display Task", module = "PP"),
+        TCode(code = "PO30", purpose = "Maintain Cost Distribution", module = "PP"),
+        TCode(code = "PO40", purpose = "Create Relationship", module = "PP"),
+        TCode(code = "PO60", purpose = "Object Cluster Copy", module = "PP"),
+        TCode(code = "PO70", purpose = "Object Cluster Delete", module = "PP"),
+        TCode(code = "PO80", purpose = "Evaluate Plan Version", module = "PP"),
+        TCode(code = "PO81", purpose = "Compare Organization Plans", module = "PP"),
+        TCode(code = "PO90", purpose = "Create IT1000 Object", module = "PP"),
+        TCode(code = "PS01", purpose = "Create InfoType (PS)", module = "PP"),
+        TCode(code = "PS02", purpose = "Change InfoType", module = "PP"),
+        TCode(code = "PS03", purpose = "InfoType Overview", module = "PP"),
+        TCode(code = "PS04", purpose = "Individual Maintenance of InfoTypes", module = "PP"),
+        TCode(code = "PS05", purpose = "InfoType Documentation", module = "PP"),
+        TCode(code = "PS06", purpose = "Copy InfoType", module = "PP"),
+        TCode(code = "PS07", purpose = "Delete InfoType", module = "PP"),
+        TCode(code = "PS51", purpose = "Copy PP Object", module = "PP"),
+        TCode(code = "PS52", purpose = "Check PP Objects", module = "PP"),
+        TCode(code = "PS53", purpose = "Display PP Objects Check Log", module = "PP"),
+        TCode(code = "PSR1", purpose = "Manager's Desktop - Change", module = "PP"),
+        TCode(code = "PSR2", purpose = "Manager's Desktop - Display", module = "PP"),
+        TCode(code = "PSTR", purpose = "Manager Self-Service - Transfer", module = "PP"),
+        TCode(code = "S_AHR_61013756", purpose = "Reports for Organizational Management", module = "PP"),
+        
+        // =====================
+        // Performance Management / Appraisals
+        // =====================
+        TCode(code = "PHAP_CRT_TPL", purpose = "Create Appraisal Template", module = "HCM"),
+        TCode(code = "PHAP_DIS_TPL", purpose = "Display Appraisal Template", module = "HCM"),
+        TCode(code = "PHAP_MANAGE", purpose = "Appraisal Process Management", module = "HCM"),
+        TCode(code = "PHAP_TDOC", purpose = "Create Appraisal Document", module = "HCM"),
+        TCode(code = "PHAP_TDOC_DIS", purpose = "Display Appraisal Document", module = "HCM"),
+        
+        // =====================
+        // Training & Events (PT)
+        // =====================
+        TCode(code = "PT01", purpose = "Create Training Event", module = "TM"),
+        TCode(code = "PT02", purpose = "Change Training Event", module = "TM"),
+        TCode(code = "PT03", purpose = "Display Training Event", module = "TM"),
+        TCode(code = "PT04", purpose = "Copy Training Event", module = "TM"),
+        TCode(code = "PT05", purpose = "Delete Training Event", module = "TM"),
+        TCode(code = "PT06", purpose = "Book Training", module = "TM"),
+        TCode(code = "PT07", purpose = "Cancel Training Booking", module = "TM"),
+        TCode(code = "PT08", purpose = "Training Cost Planning", module = "TM"),
+        TCode(code = "PT09", purpose = "Training Cost Analysis", module = "TM"),
+        TCode(code = "PT10", purpose = "Trainer Management", module = "TM"),
+        TCode(code = "PT11", purpose = "Room Management", module = "TM"),
+        
+        // =====================
+        // Manager Self-Service (ESS/MSS)
+        // =====================
+        TCode(code = "HAP_DOCUMENT", purpose = "Create Appraisal Document", module = "ESS"),
+        TCode(code = "HAP_WORKLIST", purpose = "Manager Worklist", module = "MSS"),
+        TCode(code = "HCM_LITE_MGR", purpose = "HCM Lite for Managers", module = "MSS"),
+        
+        // =====================
+        // Benefits Administration
+        // =====================
+        TCode(code = "PA88", purpose = "Benefits Administration", module = "PY"),
+        TCode(code = "PY_BEN", purpose = "Benefits Enrollment", module = "PY"),
+        TCode(code = "PY_BEN_ADMIN", purpose = "Benefits Administration", module = "PY"),
+        TCode(code = "PY_BEN_REPORT", purpose = "Benefits Reporting", module = "PY"),
+        
+        // =====================
+        // Compensation
+        // =====================
+        TCode(code = "HRIES03", purpose = "Compensation Overview", module = "PY"),
+        TCode(code = "HRIES50", purpose = "Merit Increase", module = "PY"),
+        TCode(code = "HRIES51", purpose = "Salary Adjustment", module = "PY"),
+        TCode(code = "HRIES52", purpose = "Variable Pay Planning", module = "PY"),
+        TCode(code = "HRIES53", purpose = "Bonus Planning", module = "PY"),
+        TCode(code = "HRIES54", purpose = "Long Term Incentive", module = "PY"),
+        TCode(code = "HRIES60", purpose = "Compensation Review", module = "PY"),
+        TCode(code = "HRIES70", purpose = "Compensation Comparison Report", module = "PY"),
+        
+        // =====================
+        // SAP Fiori / SuccessFactors Integration
+        // =====================
+        TCode(code = "F1111", purpose = "SAP Fiori - My Leave Request", module = "Fiori"),
+        TCode(code = "F1489", purpose = "SAP Fiori - Employee Lookup", module = "Fiori"),
+        TCode(code = "F2465", purpose = "SAP Fiori - Time Entry", module = "Fiori"),
+        TCode(code = "F2827", purpose = "SAP Fiori - Manager Self-Service", module = "Fiori"),
+        
+        // =====================
+        // Reporting & Analysis
+        // =====================
+        TCode(code = "PM00", purpose = "HR Reports Menu", module = "REPORT"),
+        TCode(code = "AL02", purpose = "Display Tables", module = "REPORT"),
+        TCode(code = "SQVI", purpose = "SAP Query Viewer", module = "REPORT"),
+        TCode(code = "SE16", purpose = "Data Browser (Table Reports)", module = "REPORT"),
+        TCode(code = "SE16N", purpose = "General Table Display", module = "REPORT"),
+        TCode(code = "TSTC", purpose = "Table of Transaction Codes", module = "REPORT"),
+        TCode(code = "S_AHR_61013583", purpose = "Headcount Analysis Report", module = "REPORT"),
+        TCode(code = "S_AHR_61013584", purpose = "Personnel Statistics", module = "REPORT"),
+        TCode(code = "S_AHR_61013625", purpose = "Payroll Reports", module = "REPORT"),
+        TCode(code = "RPLMHRC0", purpose = "Headcount Report", module = "REPORT"),
+        TCode(code = "RPCLSTB0", purpose = "Payroll List Report", module = "REPORT"),
+        
+        // =====================
+        // Configuration (IMG)
+        // =====================
+        TCode(code = "SPRO", purpose = "SAP Reference IMG (Implementation Guide)", module = "CONFIG"),
+        TCode(code = "SM30", purpose = "Maintain Table Views", module = "CONFIG"),
+        TCode(code = "SM31", purpose = "Maintain Table", module = "CONFIG"),
+        TCode(code = "SM12", purpose = "Display Locked Entries", module = "CONFIG"),
+        TCode(code = "SE11", purpose = "ABAP Dictionary - Display Structure", module = "CONFIG"),
+        TCode(code = "SU01", purpose = "User Maintenance", module = "CONFIG"),
+        TCode(code = "SU53", purpose = "Authorization Check", module = "CONFIG"),
+        TCode(code = "PFCG", purpose = "Role Maintenance (Profile Generator)", module = "CONFIG"),
+        TCode(code = "SGEN", purpose = "Generate Application Server", module = "ADMIN"),
+        
+        // =====================
+        // Employee Self-Service (ESS)
+        // =====================
+        TCode(code = "ESS1", purpose = "Employee Self-Service Main Menu", module = "ESS"),
+        TCode(code = "ESS02", purpose = "Personal Data - Change Own Data", module = "ESS"),
+        TCode(code = "ESS03", purpose = "Address Data - Change", module = "ESS"),
+        TCode(code = "ESS04", purpose = "Bank Details - Change", module = "ESS"),
+        TCode(code = "ESS05", purpose = "Family Data - Maintain", module = "ESS"),
+        TCode(code = "ESS06", purpose = "Qualifications - Maintain", module = "ESS"),
+        TCode(code = "ESS07", purpose = "Appraisals - Self Evaluation", module = "ESS"),
+        TCode(code = "ESS08", purpose = "Leave Request", module = "ESS"),
+        TCode(code = "ESS09", purpose = "Time Recording - ESS", module = "ESS"),
+        TCode(code = "ESS10", purpose = "Travel Expense - ESS", module = "ESS"),
+        
+        // =====================
+        // Manager Self-Service (MSS)
+        // =====================
+        TCode(code = "MSS1", purpose = "Manager Self-Service Main Menu", module = "MSS"),
+        TCode(code = "MSS02", purpose = "Team Calendar", module = "MSS"),
+        TCode(code = "MSS03", purpose = "Employee Directory", module = "MSS"),
+        TCode(code = "MSS04", purpose = "Headcount Overview", module = "MSS"),
+        TCode(code = "MSS05", purpose = "Time Management - Manager", module = "MSS"),
+        TCode(code = "MSS06", purpose = "Leave Approval", module = "MSS"),
+        TCode(code = "MSS07", purpose = "Travel Approval", module = "MSS"),
+        TCode(code = "MSS08", purpose = "Performance Reviews", module = "MSS"),
+        TCode(code = "MSS09", purpose = "Goal Management", module = "MSS"),
+        TCode(code = "MSS10", purpose = "Compensation Management", module = "MSS"),
+        
+        // =====================
+        // SAP S/4HANA HCM
+        // =====================
+        TCode(code = "F1601", purpose = "S/4HANA - Employee Data", module = "S4HANA"),
+        TCode(code = "F1602", purpose = "S/4HANA - Employee Profile", module = "S4HANA"),
+        TCode(code = "F1603", purpose = "S/4HANA - Organization Chart", module = "S4HANA"),
+        TCode(code = "F1604", purpose = "S/4HANA - Time Management", module = "S4HANA"),
+        TCode(code = "F1605", purpose = "S/4HANA - Leave Request", module = "S4HANA"),
+        TCode(code = "F1606", purpose = "S/4HANA - Expense Report", module = "S4HANA"),
+        TCode(code = "F1607", purpose = "S/4HANA - Travel Booking", module = "S4HANA"),
+        
+        // =====================
+        // Employee Central (EC)
+        // =====================
+        TCode(code = "ECPAO", purpose = "Employee Central - Admin Overview", module = "EC"),
+        TCode(code = "ECPEP", purpose = "Employee Central - Portlet Framework", module = "EC"),
+        TCode(code = "ECEOI", purpose = "Employee Central - Onboarding Initiation", module = "EC"),
+        TCode(code = "ECPCA", purpose = "Employee Central - Pay Component Assignment", module = "EC"),
+        TCode(code = "ECFWD", purpose = "Employee Central - Future Dated Changes", module = "EC"),
+        
+        // =====================
+        // Additional Common HCM T-Codes
+        // =====================
+        TCode(code = "PU00", purpose = "Check DME File", module = "PC"),
+        TCode(code = "P1B1", purpose = "Transfer Hiring Data for Applicant", module = "PB"),
+        TCode(code = "SM37", purpose = "Job Overview", module = "ADMIN"),
+        TCode(code = "SM36", purpose = "Define Jobs", module = "ADMIN"),
+        TCode(code = "SA38", purpose = "Execute ABAP Program", module = "ADMIN"),
+        TCode(code = "SE38", purpose = "ABAP Editor", module = "ADMIN"),
+        TCode(code = "SE24", purpose = "Class Builder", module = "ADMIN"),
+        TCode(code = "SE37", purpose = "Function Builder", module = "ADMIN"),
+        TCode(code = "SE93", purpose = "Maintain Transaction Codes", module = "ADMIN"),
+        TCode(code = "SHDB", purpose = "Recording of Background Jobs", module = "ADMIN"),
+        TCode(code = "SM21", purpose = "Online System Log Analysis", module = "ADMIN"),
+        TCode(code = "ST22", purpose = "ABAP Dump Analysis", module = "ADMIN"),
+        TCode(code = "SU21", purpose = "Authorization Objects", module = "ADMIN"),
+        TCode(code = "SU22", purpose = "Authorization Objects by Transaction", module = "ADMIN"),
+        TCode(code = "SU24", purpose = "Check Authorization Object", module = "ADMIN"),
+        TCode(code = "SU25", purpose = "Upgrade Transaction for Authorization Checks", module = "ADMIN"),
+        TCode(code = "SUKR", purpose = "User Comparison Report", module = "ADMIN"),
+        TCode(code = "STMS", purpose = "Transport Management System", module = "ADMIN"),
+        TCode(code = "SE01", purpose = "Transport Organizer (Extended)", module = "ADMIN"),
+        TCode(code = "SE10", purpose = "Transport Organizer", module = "ADMIN"),
+        TCode(code = "SGEN", purpose = "Generate Application Server", module = "ADMIN"),
+        TCode(code = "SICK", purpose = "SAP Initial Installation Check", module = "ADMIN")
+    )
+}

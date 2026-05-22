@@ -10,13 +10,13 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface TCodeDao {
-    @Query("SELECT * FROM tcodes ORDER BY createdAt DESC")
+    @Query("SELECT * FROM tcodes ORDER BY code ASC")
     fun getAllTCodes(): Flow<List<TCode>>
     
-    @Query("SELECT * FROM tcodes WHERE code LIKE '%' || :query || '%' OR purpose LIKE '%' || :query || '%' OR module LIKE '%' || :query || '%' ORDER BY createdAt DESC")
+    @Query("SELECT * FROM tcodes WHERE code LIKE '%' || :query || '%' OR purpose LIKE '%' || :query || '%' OR module LIKE '%' || :query || '%' ORDER BY code ASC")
     fun searchTCodes(query: String): Flow<List<TCode>>
     
-    @Query("SELECT * FROM tcodes WHERE favorite = 1 ORDER BY createdAt DESC")
+    @Query("SELECT * FROM tcodes WHERE favorite = 1 ORDER BY code ASC")
     fun getFavorites(): Flow<List<TCode>>
     
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -27,6 +27,9 @@ interface TCodeDao {
     
     @Delete
     suspend fun deleteTCode(tCode: TCode)
+    
+    @Query("SELECT COUNT(*) FROM tcodes")
+    suspend fun getCount(): Int
 }
 
 @Dao
