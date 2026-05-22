@@ -210,64 +210,13 @@ fun HomeScreen(
 
 @Composable
 fun HomeHeader() {
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(
-                brush = Brush.horizontalGradient(
-                    colors = listOf(SAPBlueDark, SAPBlue)
-                )
-            )
-            .padding(horizontal = 20.dp, vertical = 24.dp)
-    ) {
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Column {
-                Text(
-                    text = "SAP TCode",
-                    style = MaterialTheme.typography.headlineMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = Color.White
-                )
-                Text(
-                    text = "Tracker",
-                    style = MaterialTheme.typography.headlineMedium,
-                    fontWeight = FontWeight.Light,
-                    color = Color.White.copy(alpha = 0.9f)
-                )
-            }
-            
-            // Animated logo
-            val infiniteTransition = rememberInfiniteTransition(label = "logo")
-            val rotation by infiniteTransition.animateFloat(
-                initialValue = 0f,
-                targetValue = 360f,
-                animationSpec = infiniteRepeatable(
-                    animation = tween(10000),
-                    repeatMode = RepeatMode.Restart
-                ),
-                label = "logoRotation"
-            )
-            
-            Surface(
-                modifier = Modifier.size(56.dp),
-                shape = CircleShape,
-                color = Color.White.copy(alpha = 0.2f)
-            ) {
-                Box(
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text(
-                        text = "📚",
-                        style = MaterialTheme.typography.headlineMedium
-                    )
-                }
-            }
-        }
-    }
+    Text(
+        text = "T-Codes",
+        style = MaterialTheme.typography.titleMedium,
+        fontWeight = FontWeight.SemiBold,
+        color = MaterialTheme.colorScheme.onSurface,
+        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+    )
 }
 
 @Composable
@@ -280,7 +229,7 @@ fun StatsHeader(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 8.dp),
+            .padding(vertical = 4.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -319,26 +268,6 @@ fun StatsHeader(
                     },
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            }
-        }
-        
-        // Animated badges
-        AnimatedVisibility(
-            visible = count > 0,
-            enter = scaleIn() + fadeIn(),
-            exit = scaleOut() + fadeOut()
-        ) {
-            Surface(
-                shape = RoundedCornerShape(12.dp),
-                color = SAPGreen.copy(alpha = 0.1f)
-            ) {
-                Text(
-                    text = "✨ Your Collection",
-                    style = MaterialTheme.typography.labelMedium,
-                    color = SAPGreen,
-                    fontWeight = FontWeight.SemiBold,
-                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
                 )
             }
         }

@@ -51,8 +51,8 @@ fun MainScreen(
             CenterAlignedTopAppBar(
                 title = {
                     Text(
-                        text = "SAP Tracker 🐱",
-                        style = MaterialTheme.typography.titleLarge
+                        text = "SAP Tracker",
+                        style = MaterialTheme.typography.titleMedium
                     )
                 },
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
