@@ -11,7 +11,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.saptrackerdrix.app.ui.screens.HomeScreen
+import com.saptrackerdrix.app.ui.screens.MainScreen
 import com.saptrackerdrix.app.ui.theme.SAPTcodeTrackerTheme
 import com.saptrackerdrix.app.ui.viewmodels.TCodeViewModel
 import com.saptrackerdrix.app.ui.viewmodels.TCodeViewModelFactory
@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
                     
                     val uiState by viewModel.uiState.collectAsState()
                     
-                    HomeScreen(
+                    MainScreen(
                         tcodes = uiState.tcodes,
                         searchQuery = uiState.searchQuery,
                         isSearching = uiState.isSearching,

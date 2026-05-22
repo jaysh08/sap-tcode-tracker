@@ -36,15 +36,11 @@ class TCodeViewModel(private val context: Context) : ViewModel() {
         Triple(Triple(query, favoritesOnly, addedId), searchedId, Unit)
     }.flatMapLatest { (params, searchedId, _) ->
         val (query, favoritesOnly, addedId) = params
-        // Debounce the search query to prevent cursor jumping
-        val searchFlow = if (query.isNotBlank()) {
-            dao.searchTCodes(query)
-        } else if (favoritesOnly) {
-            dao.getFavorites()
-        } else {
-            dao.getAllTCodes()
-        }
-        searchFlow.debounce(150).map { tcodes ->
+        when {
+            query.isNotBlank() -> dao.searchTCodes(query)
+            favoritesOnly -> dao.getFavorites()
+            else -> dao.getAllTCodes()
+        }.map { tcodes ->
             TCodeUiState(
                 tcodes = tcodes,
                 searchQuery = query,

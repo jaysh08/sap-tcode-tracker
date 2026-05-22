@@ -2,6 +2,7 @@ package com.saptrackerdrix.app.data.repository
 
 import android.content.Context
 import androidx.room.*
+import com.saptrackerdrix.app.data.model.Infotype
 import com.saptrackerdrix.app.data.model.TCode
 import kotlinx.coroutines.flow.Flow
 
@@ -26,9 +27,34 @@ interface TCodeDao {
     suspend fun deleteTCode(tCode: TCode)
 }
 
-@Database(entities = [TCode::class], version = 1, exportSchema = false)
+@Dao
+interface InfotypeDao {
+    @Query("SELECT * FROM infotypes ORDER BY code ASC")
+    fun getAllInfotypes(): Flow<List<Infotype>>
+    
+    @Query("SELECT * FROM infotypes WHERE code LIKE '%' || :query || '%' OR name LIKE '%' || :query || '%' ORDER BY code ASC")
+    fun searchInfotypes(query: String): Flow<List<Infotype>>
+    
+    @Query("SELECT * FROM infotypes WHERE isFavorite = 1 ORDER BY code ASC")
+    fun getFavorites(): Flow<List<Infotype>>
+    
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAll(infotypes: List<Infotype>)
+    
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(infotype: Infotype)
+    
+    @Query("UPDATE infotypes SET isFavorite = :isFavorite WHERE code = :code")
+    suspend fun updateFavorite(code: String, isFavorite: Boolean)
+    
+    @Query("SELECT COUNT(*) FROM infotypes")
+    suspend fun getCount(): Int
+}
+
+@Database(entities = [TCode::class, Infotype::class], version = 2, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun tCodeDao(): TCodeDao
+    abstract fun infotypeDao(): InfotypeDao
 }
 
 object DatabaseProvider {
