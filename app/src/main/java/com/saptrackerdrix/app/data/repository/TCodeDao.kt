@@ -76,7 +76,7 @@ object DatabaseProvider {
                 AppDatabase::class.java,
                 "sap_tcode_database"
             )
-                .addMigrations(MIGRATION_1_2)
+                .fallbackToDestructiveMigration()
                 .build()
             INSTANCE = instance
             instance
