@@ -5,6 +5,7 @@ import androidx.compose.animation.core.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -18,8 +19,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
@@ -36,7 +38,6 @@ fun SearchBar(
 ) {
     val focusManager = LocalFocusManager.current
     
-    // Animated search icon
     val infiniteTransition = rememberInfiniteTransition(label = "searchIcon")
     val searchIconScale by infiniteTransition.animateFloat(
         initialValue = 1f,
@@ -48,7 +49,6 @@ fun SearchBar(
         label = "searchIconScale"
     )
     
-    // Button bounce animation
     var favoritesAnimating by remember { mutableStateOf(false) }
     val favoritesScale by animateFloatAsState(
         targetValue = when {
@@ -92,7 +92,6 @@ fun SearchBar(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            // Animated search icon
             Icon(
                 imageVector = Icons.Default.Search,
                 contentDescription = "Search",
@@ -104,29 +103,29 @@ fun SearchBar(
                     )
             )
             
-            TextField(
-                value = query,
-                onValueChange = onQueryChange,
-                placeholder = {
+            Box(modifier = Modifier.weight(1f)) {
+                if (query.isEmpty()) {
                     Text(
                         text = "Search tcodes or purpose...",
-                        color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f)
+                        color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f),
+                        style = MaterialTheme.typography.bodyLarge
                     )
-                },
-                singleLine = true,
-                modifier = Modifier.weight(1f),
-                colors = TextFieldDefaults.colors(
-                    unfocusedContainerColor = Color.Transparent,
-                    focusedContainerColor = Color.Transparent,
-                    unfocusedIndicatorColor = Color.Transparent,
-                    focusedIndicatorColor = Color.Transparent,
-                    cursorColor = SAPBlue
-                ),
-                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
-                keyboardActions = KeyboardActions(onSearch = { focusManager.clearFocus() })
-            )
+                }
+                BasicTextField(
+                    value = query,
+                    onValueChange = onQueryChange,
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth(),
+                    textStyle = TextStyle(
+                        color = MaterialTheme.colorScheme.onSurface,
+                        fontSize = MaterialTheme.typography.bodyLarge.fontSize
+                    ),
+                    cursorBrush = SolidColor(SAPBlue),
+                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
+                    keyboardActions = KeyboardActions(onSearch = { focusManager.clearFocus() })
+                )
+            }
             
-            // Clear button
             AnimatedVisibility(
                 visible = query.isNotBlank(),
                 enter = scaleIn() + fadeIn(),
@@ -145,7 +144,6 @@ fun SearchBar(
                 }
             }
             
-            // Favorites toggle button
             IconButton(
                 onClick = {
                     favoritesAnimating = true
